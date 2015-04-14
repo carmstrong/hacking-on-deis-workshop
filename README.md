@@ -79,6 +79,16 @@ $ ssh-keygen -q -t rsa -f ~/.ssh/deis-carmstrong -N '' -C deis-carmstrong
 $ aws ec2 import-key-pair --key-name deis --public-key-material file://~/.ssh/deis-carmstrong.pub
 ```
 
+We need to tell Deis to use our key. Edit `contrib/ec2/cloudformation.json` to specify the key:
+```
+[
+    {
+        "ParameterKey":     "KeyPair",
+        "ParameterValue":   "deis-carmstrong"
+    }
+]
+```
+
 We should also add it to our local SSH agent so it's offered when we try to log into the machines:
 ```console
 $ ssh-add ~/.ssh/deis-carmstrong
