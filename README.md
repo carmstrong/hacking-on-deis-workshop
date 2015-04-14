@@ -425,6 +425,13 @@ I'm a little teapot, short and stout...
 
 Happy Hacking!
 
+## Cleaning up
+
+You'll need to delete the CloudFormation stack when you're finished. Terminating the instances doesn't do anything, as the autocsaling group will launch new instances to replace them. You can do this through the AWS web UI, or by using the AWS CLI:
+```console
+$ aws cloudformation delete-stack <stackname>
+```
+
 ## References
 
 This workshop may fall out of date. The official [Deis documentation](http://docs.deis.io/en/latest/)
