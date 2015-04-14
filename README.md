@@ -15,13 +15,13 @@ need an appropriate development environment.
 * Run `boot2docker init`
 * Run `boot2docker start`
 * Run `eval "$(boot2docker shellinit)"`
-* Confirm Docker is working properly with `docker run hello-world`
+* Confirm Docker is working properly with `docker info`
 
 #### Linux
 * Use the official installation shell script: `curl -sSL https://get.docker.com/ | sh`
  * To see what the script does, view [https://get.docker.com/](https://get.docker.com/)
  * Most distros have a much-too-old version of Docker in their package repositories - using this script should give us the latest
-* Confirm Docker is working properly with `docker run hello-world`
+* Confirm Docker is working properly with `docker info`
 
 ### Install clients
 
