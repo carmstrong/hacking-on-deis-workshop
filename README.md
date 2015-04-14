@@ -68,6 +68,11 @@ Default region name [None]: us-west-1
 Default output format [None]:
 ```
 
+If you get an error because you don't already have `pip`, you'll need to install it first:
+```console
+$ sudo easy_install pip
+```
+
 Create a new keypair for Deis and upload it to EC2:
 ```console
 $ ssh-keygen -q -t rsa -f ~/.ssh/deis -N '' -C deis
