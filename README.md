@@ -381,7 +381,7 @@ $ docker tag $IMAGE carmstrong/deis-router:teapot
 $ docker push carmstrong/deis-router:teapot
 ```
 
-Now, we can tell the Deis cluster we'd like to us a custom router image:
+Now, we can tell the Deis cluster we'd like to use a custom router image:
 ```console
 $ deisctl config router set image=carmstrong/deis-router:teapot
 ```
