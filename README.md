@@ -172,6 +172,8 @@ $ deisctl install platform
 $ deisctl start platform
 ```
 
+What exactly did this do? `deisctl` talked to [fleet](https://github.com/coreos/fleet), the CoreOS cluster scheduler, and asked it to run the Deis components on the cluster. We can use `deisctl list` to see on which hosts  the components ended up.
+
 ## Deploying apps
 
 We'll need to register a Deis user on our new cluster. The `deis` CLI interacts with the Deis
