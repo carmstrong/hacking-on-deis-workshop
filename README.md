@@ -75,20 +75,20 @@ $ sudo easy_install pip
 
 Create a new keypair for Deis and upload it to EC2:
 ```console
-$ ssh-keygen -q -t rsa -f ~/.ssh/deis -N '' -C deis
-$ aws ec2 import-key-pair --key-name deis --public-key-material file://~/.ssh/deis.pub
+$ ssh-keygen -q -t rsa -f ~/.ssh/deis-carmstrong -N '' -C deis-carmstrong
+$ aws ec2 import-key-pair --key-name deis --public-key-material file://~/.ssh/deis-carmstrong.pub
 ```
 
 We should also add it to our local SSH agent so it's offered when we try to log into the machines:
 ```console
-$ ssh-add ~/.ssh/deis
+$ ssh-add ~/.ssh/deis-carmstrong
 ```
 
 Generate a new discovery URL and deploy:
 ```console
 $ make discovery-url
 $ cd contrib/ec2
-$ ./provision-ec2-cluster.sh
+$ ./provision-ec2-cluster.sh deis-carmstrong
 Creating CloudFormation stack deis
 {
     "StackId": "arn:aws:cloudformation:us-east-1:69326027886:stack/deis/1e9916b0-d7ea-11e4-a0be-50d2020578e0"
@@ -166,7 +166,7 @@ We also provide the SSH key we used to provision the hosts. This is used by the 
 to log into the host machine and schedule one-off tasks:
 
 ```console
-$ deisctl config platform set sshPrivateKey=~/.ssh/deis
+$ deisctl config platform set sshPrivateKey=~/.ssh/deis-carmstrong
 ```
 
 *Finally*, we can install and start the platform. This will take about 20 minutes for the platform
@@ -222,7 +222,7 @@ Before we can push the app, we need to tell Deis who we are by uploading our pub
 ```console
 $ deis keys:add
 Found the following SSH public keys:
-1) deis.pub deis
+1) deis-carmstrong.pub deis
 2) id_rsa.pub carmstrong@carmstrong-mbp.local
 0) Enter path to pubfile (or use keys:add <key_path>)
 Which would you like to use with Deis? 1
